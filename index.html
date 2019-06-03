@@ -341,16 +341,20 @@
 		    	}); 
 				</script>
 
-			<!-- 	<script src="js/scroll.js"></script>	
-			<script src="js/counter.js"></script>
 			<script type="text/javascript">
-				jQuery(document).ready(function()
-				{
-				$('.counter').counterUp({
-   				 	delay: 10,
-    				time: 1000
+				$(document).ready(function(){
+					$('.counter').each(function(){
+						$(this).prop('Counter',0).animate({
+							Counter: $(this).text()
+						},{
+							duration:3500,
+							easing:'swing',
+							step:function(now)
+							{
+								$(this).text(Math.ceil(now));
+							}
+						});
+					});
 				});
-				});
-			</script> -->
 	</body>
 </html>
